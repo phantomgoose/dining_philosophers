@@ -39,9 +39,9 @@ impl<'a> Philosopher<'a> {
         }
 
         // Both forks aren't yet available, need to wait.
-        // An alternative to waiting might be to break the fork symmetry such that one of the
-        // philosophers locks the right fork before the left, thus preventing deadlocks.
-        // I find that alternative solution less elegant though.
+        // One of the alternative solutions to waiting might be to break the fork symmetry such that
+        // one of the philosophers locks the right fork before the left, thus preventing deadlocks.
+        // I find this alternative solution less elegant, despite being more efficient, though.
         thread::sleep(Duration::from_millis(5));
         println!("{} is waiting for forks before eating...", &self.name);
         self.eat();
