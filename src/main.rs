@@ -48,6 +48,7 @@ impl<'a> Philosopher<'a> {
     }
 }
 
+// Create philosophers
 static PHILOSOPHERS: &[&str] = &["Socrates", "Plato", "Aristotle", "Thales", "Pythagoras"];
 
 fn main() {
@@ -56,7 +57,6 @@ fn main() {
         .map(|_| Arc::new(Mutex::new(Fork)))
         .collect();
 
-    // Create philosophers
     let (thoughts_tx, thoughts_rx) = mpsc::channel();
 
     // Make each of them think and eat 100 times
